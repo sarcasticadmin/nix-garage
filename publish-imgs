@@ -10,7 +10,7 @@ IMG_DIR="imgs/$1"
 # Make sure nix-build was run
 test -f ${IMG_DIR}/result || (echo "please build derivation" && exit 1)
 
-derivation=$(nix show-derivation $(nix-instantiate ${IMG_DIR}/default.nix))
+derivation=$(nix show-derivation $(nix-instantiate -A imgs.$1))
 registry="docker.io"
 image_fullname=$(echo $derivation | jq -r '.[] | .env.imageName')
 org=$(echo $image_fullname | cut -d '/' -f 1)
