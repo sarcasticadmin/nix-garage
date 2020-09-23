@@ -1,4 +1,4 @@
-{ system ? builtins.currentSystem }:
+{ system ? builtins.currentSystem, pkgs }:
 let
   nwi = import ../../nwi.nix;
   lib = pkgs.lib;
