@@ -1,5 +1,6 @@
 { pkgs ? import <nixpkgs> {} }:
 
-rec {
+{
   flasksample = pkgs.callPackage ./pkgs/flasksample {};
+  imgs = import ./imgs { inherit pkgs; };
 }
