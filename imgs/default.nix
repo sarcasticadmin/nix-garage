@@ -9,8 +9,12 @@ rec {
     pkgs = import ../pin { snapshot = "nixos-20-03_0"; };
   };
 
-  magic-wormhole-mailbox = pkgs.callPackage ./magic-wormhole-mailbox { };
+  magic-wormhole-mailbox = pkgs.callPackage ./magic-wormhole-mailbox {
+    pkgs = import ../pin { snapshot = "nixos-20-03_0"; };
+  };
 
-  pki-validator  = pkgs.callPackage ./pki-validator { };
+  pki-validator  = pkgs.callPackage ./pki-validator {
+    pkgs = import ../pin { snapshot = "nixos-20-03_0"; };
+  };
 }
 

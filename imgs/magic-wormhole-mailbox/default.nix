@@ -1,7 +1,6 @@
 { system ? builtins.currentSystem }:
 let
   nwi = import ../../nwi.nix;
-  pkgs = import ../../pin { snapshot = "nixos-20-03_0"; };
   lib = pkgs.lib;
   importedPythonPkgs = with pkgs; python37.withPackages (pythonPkgs: with pythonPkgs; [ magic-wormhole-mailbox-server ]);
   contents = with pkgs; [ bash coreutils procps importedPythonPkgs ];

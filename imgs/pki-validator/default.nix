@@ -1,7 +1,6 @@
 { system ? builtins.currentSystem }:
 let
   nwi = import ../../nwi.nix;
-  pkgs = import ../../pin { snapshot = "nixos-20-03_0"; };
   lib = pkgs.lib;
   contents = with pkgs; [ openssl coreutils bash gnumake gnugrep gawk ];
 in
