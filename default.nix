@@ -1,6 +1,8 @@
-{ pkgs ? import <nixpkgs> {} }:
-
+{ nixpkgs ? import <nixpkgs> {} }:
+let
+  garage-overlay = import ./overlay.nix;
+  pkgs = import nixpkgs.path { config = {}; overlays = [ garage-overlay ]; };
+in
 {
-  flasksample = pkgs.callPackage ./pkgs/flasksample {};
   imgs = import ./imgs { inherit pkgs; };
 }
